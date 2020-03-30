@@ -57,7 +57,7 @@ class alans_job:
         iterations = 50
         while(iterations > 0):
             time.sleep(3)
-            path = self.dfu.download_web_file(
+            path = dfu.download_web_file(
                 {'file_url': "http://kbase.us/wp-content/uploads/2016/09/Kbase_Logo_newWeb.png",
                  'download_type': 'Direct Download'}).get(
                 'copy_file_path')
