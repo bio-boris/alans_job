@@ -39,7 +39,7 @@ class alans_job:
         pprint.pprint(config)
         self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.shared_folder = config['scratch']
-        self.srv_wiz_url = config['srv_wiz_url']
+        self.srv_wiz_url = config['srv-wiz-url']
         logging.basicConfig(format='%(created)s %(levelname)s: %(message)s',
                             level=logging.INFO)
         #END_CONSTRUCTOR
