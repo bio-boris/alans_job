@@ -5,6 +5,7 @@ import os
 import time
 from installed_clients.KBaseReportClient import KBaseReport
 from installed_clients.DataFileUtilClient import DataFileUtil
+from installed_clients.SetAPIClient import SetAPI
 #END_HEADER
 
 
@@ -36,6 +37,7 @@ class alans_job:
         #BEGIN_CONSTRUCTOR
         self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.shared_folder = config['scratch']
+        self.srv_wiz_url = config['srv_wiz_url']
         logging.basicConfig(format='%(created)s %(levelname)s: %(message)s',
                             level=logging.INFO)
         #END_CONSTRUCTOR
@@ -54,6 +56,9 @@ class alans_job:
         #BEGIN run_alans_job
         report = KBaseReport(self.callback_url)
         dfu = DataFileUtil(self.callback_url)
+        set_client = SetAPI(self.srv_wiz_url)
+        print(set_client.status())
+
         iterations = 50
         while(iterations > 0):
             time.sleep(3)
