@@ -35,6 +35,8 @@ class alans_job:
     # be found
     def __init__(self, config):
         #BEGIN_CONSTRUCTOR
+        import pprint
+        pprint(config)
         self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.shared_folder = config['scratch']
         self.srv_wiz_url = config['srv_wiz_url']
