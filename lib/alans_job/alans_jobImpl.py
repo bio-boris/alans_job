@@ -55,17 +55,17 @@ class alans_job:
         # ctx is the context object
         #BEGIN run_alans_job
         SERVICE_VER = 'release'
-        report = KBaseReport(self.callback_url)
-        dfu = DataFileUtil(self.callback_url)
-        readsUtils_Client = ReadsUtils(self.callback_url, token=ctx['token'],
-                                            service_ver=SERVICE_VER)
+        # report = KBaseReport(self.callback_url)
+        # dfu = DataFileUtil(self.callback_url)
+        #readsUtils_Client = ReadsUtils(self.callback_url, token=ctx['token'],
+        #                                    service_ver=SERVICE_VER)
         # set_client = SetAPI(self.srv_wiz_url)
         # print(set_client.status())
 
-        readsLibrary = readsUtils_Client.download_reads({'read_libraries': ['45146/26/1'],
-                                                              'interleaved': 'false'})
+        #readsLibrary = readsUtils_Client.download_reads({'read_libraries': ['45146/26/1'],
+        #                                                      'interleaved': 'false'})
 
-        iterations = 50
+        #iterations = 50
         # while(iterations > 0):
         #     time.sleep(3)
         #     path = dfu.download_web_file(
@@ -77,13 +77,13 @@ class alans_job:
         #     iterations-=1
 
 
-        report_info = report.create({'report': {'objects_created':[],
-                                                'text_message': f'The app is done. We downloaded {iterations} files'},
-                                                'workspace_name': params['workspace_name']})
-        output = {
-            'report_name': report_info['name'],
-            'report_ref': report_info['ref'],
-        }
+        # report_info = report.create({'report': {'objects_created':[],
+        #                                         'text_message': f'The app is done. We downloaded {iterations} files'},
+        #                                         'workspace_name': params['workspace_name']})
+        # output = {
+        #     'report_name': report_info['name'],
+        #     'report_ref': report_info['ref'],
+        # }
         #END run_alans_job
         pass
     def status(self, ctx):
