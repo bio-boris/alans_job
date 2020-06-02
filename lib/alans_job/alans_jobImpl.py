@@ -60,7 +60,7 @@ class alans_job:
         import time
         time.sleep(10)
         print("i'm so cool i'm so fashionble")
-        report = KBaseReport(self.callback_url)
+        report = KBaseReport(self.callback_url,service_ver='fake')
         # dfu = DataFileUtil(self.callback_url)
         #readsUtils_Client = ReadsUtils(self.callback_url, token=ctx['token'],
         #                                    service_ver=SERVICE_VER)
