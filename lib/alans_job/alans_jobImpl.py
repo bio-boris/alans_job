@@ -58,7 +58,7 @@ class alans_job:
         SERVICE_VER = 'release'
         print("i'm so cool i'm so fashionble")
         import time
-        time.sleep(120)
+        time.sleep(10)
         print("i'm so cool i'm so fashionble")
         report = KBaseReport(self.callback_url)
         # dfu = DataFileUtil(self.callback_url)
