@@ -58,6 +58,7 @@ class alans_job:
         print("i'm so cool i'm so fashionble")
         import time
         time.sleep(120)
+        print("i'm so cool i'm so fashionble")
         # report = KBaseReport(self.callback_url)
         # dfu = DataFileUtil(self.callback_url)
         #readsUtils_Client = ReadsUtils(self.callback_url, token=ctx['token'],
