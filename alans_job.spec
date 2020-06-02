@@ -11,6 +11,6 @@ module alans_job {
     /*
         This example function accepts any number of parameters and returns results in a KBaseReport
     */
-    funcdef run_alans_job(mapping<string,UnspecifiedObject> params) returns (ReportResults output) authentication required;
+    funcdef run_alans_job(mapping<string,UnspecifiedObject> params) returns () authentication required;
 
 };
