@@ -6,6 +6,7 @@ import time
 from installed_clients.KBaseReportClient import KBaseReport
 from installed_clients.DataFileUtilClient import DataFileUtil
 from installed_clients.SetAPIClient import SetAPI
+from installed_clients.ReadsUtilsClient import ReadsUtils
 #END_HEADER
 
 
@@ -25,8 +26,8 @@ class alans_job:
     # the latter method is running.
     ######################################### noqa
     VERSION = "0.0.1"
-    GIT_URL = ""
-    GIT_COMMIT_HASH = ""
+    GIT_URL = "https://bio-boris@github.com/bio-boris/alans_job.git"
+    GIT_COMMIT_HASH = "445da7dddebaf55bb64afbeeb7d2c32e51fe8f4c"
 
     #BEGIN_CLASS_HEADER
     #END_CLASS_HEADER
@@ -50,27 +51,30 @@ class alans_job:
         """
         This example function accepts any number of parameters and returns results in a KBaseReport
         :param params: instance of mapping from String to unspecified object
-        :returns: instance of type "ReportResults" -> structure: parameter
-           "report_name" of String, parameter "report_ref" of String
         """
         # ctx is the context object
-        # return variables are: output
         #BEGIN run_alans_job
+        SERVICE_VER = 'release'
         report = KBaseReport(self.callback_url)
         dfu = DataFileUtil(self.callback_url)
-        set_client = SetAPI(self.srv_wiz_url)
-        print(set_client.status())
+        readsUtils_Client = ReadsUtils(self.callback_url, token=ctx['token'],
+                                            service_ver=SERVICE_VER)
+        # set_client = SetAPI(self.srv_wiz_url)
+        # print(set_client.status())
+
+        readsLibrary = readsUtils_Client.download_reads({'read_libraries': ['45146/26/1'],
+                                                              'interleaved': 'false'})
 
         iterations = 50
-        while(iterations > 0):
-            time.sleep(3)
-            path = dfu.download_web_file(
-                {'file_url': "http://kbase.us/wp-content/uploads/2016/09/Kbase_Logo_newWeb.png",
-                 'download_type': 'Direct Download'}).get(
-                'copy_file_path')
-
-            print("Downloaded file to", path)
-            iterations-=1
+        # while(iterations > 0):
+        #     time.sleep(3)
+        #     path = dfu.download_web_file(
+        #         {'file_url': "http://kbase.us/wp-content/uploads/2016/09/Kbase_Logo_newWeb.png",
+        #          'download_type': 'Direct Download'}).get(
+        #         'copy_file_path')
+        #
+        #     print("Downloaded file to", path)
+        #     iterations-=1
 
 
         report_info = report.create({'report': {'objects_created':[],
@@ -81,13 +85,7 @@ class alans_job:
             'report_ref': report_info['ref'],
         }
         #END run_alans_job
-
-        # At some point might do deeper type checking...
-        if not isinstance(output, dict):
-            raise ValueError('Method run_alans_job return value ' +
-                             'output is not type dict as required.')
-        # return the results
-        return [output]
+        pass
     def status(self, ctx):
         #BEGIN_STATUS
         returnVal = {'state': "OK",
