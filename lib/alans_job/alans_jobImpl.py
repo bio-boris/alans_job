@@ -4,6 +4,7 @@ import logging
 import os
 import time
 from installed_clients.KBaseReportClient import KBaseReport
+from installed_clients.DataFileUtilClient import DataFileUtil
 
 #END_HEADER
 
@@ -61,25 +62,11 @@ class alans_job:
         time.sleep(10)
         print("i'm so cool i'm so fashionble")
         report = KBaseReport(self.callback_url,service_ver='fake')
-        # dfu = DataFileUtil(self.callback_url)
-        #readsUtils_Client = ReadsUtils(self.callback_url, token=ctx['token'],
-        #                                    service_ver=SERVICE_VER)
-        # set_client = SetAPI(self.srv_wiz_url)
-        # print(set_client.status())
-
-        #readsLibrary = readsUtils_Client.download_reads({'read_libraries': ['45146/26/1'],
-        #                                                      'interleaved': 'false'})
-
-        #iterations = 50
-        # while(iterations > 0):
-        #     time.sleep(3)
-        #     path = dfu.download_web_file(
-        #         {'file_url': "http://kbase.us/wp-content/uploads/2016/09/Kbase_Logo_newWeb.png",
-        #          'download_type': 'Direct Download'}).get(
-        #         'copy_file_path')
-        #
-        #     print("Downloaded file to", path)
-        #     iterations-=1
+        dfu = DataFileUtil(self.callback_url)
+        dwf = {'download_type' : 'Google Drive',
+               'file_url' : 'www.google.com'}
+        filepath = dfu.download_web_file(params=dwf)
+        print(filepath)
 
 
         report_info = report.create({'report': {'objects_created':[],
