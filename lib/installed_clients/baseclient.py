@@ -186,15 +186,21 @@ class BaseClient(object):
         print("Res status code",ret.status_code)
         print("Ret ok",ret.ok)
         print(ret.json())
+        print("Response type is json?",ret.headers.get(_CT) == _AJ)
 
         if ret.status_code == 500:
             if ret.headers.get(_CT) == _AJ:
+                print("1")
                 err = ret.json()
+                print("2")
                 if 'error' in err:
+                    print("3")
                     raise ServerError(**err['error'])
                 else:
+                    print("4")
                     raise ServerError('Unknown', 0, ret.text)
             else:
+                print("5")
                 raise ServerError('Unknown', 0, ret.text)
         if not ret.ok:
             ret.raise_for_status()
