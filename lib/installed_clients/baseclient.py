@@ -180,6 +180,13 @@ class BaseClient(object):
                              timeout=self.timeout,
                              verify=not self.trust_all_ssl_certificates)
         ret.encoding = 'utf-8'
+
+        print("Arg hash",arg_hash)
+        print("Rest",ret)
+        print("Res status code",ret.status_code)
+        print("Ret ok",ret.ok)
+        print(ret.json())
+
         if ret.status_code == 500:
             if ret.headers.get(_CT) == _AJ:
                 err = ret.json()

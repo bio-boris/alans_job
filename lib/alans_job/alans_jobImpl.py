@@ -67,7 +67,7 @@ class alans_job:
         dwf = {'download_type' : 'Google Drive',
                'file_url' : 'www.google.com'}
         filepath = dfu.download_web_file(params=dwf)
-        print(filepath)
+        print("Filepath is", filepath)
 
 
         report_info = report.create({'report': {'objects_created':[],
