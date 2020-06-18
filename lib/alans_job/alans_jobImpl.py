@@ -61,7 +61,8 @@ class alans_job:
         import time
         time.sleep(10)
         print("i'm so cool i'm so fashionble")
-        report = KBaseReport(self.callback_url,service_ver='fake')
+        #TODO ADD ,service_ver='fake'
+        report = KBaseReport(self.callback_url)
         dfu = DataFileUtil(self.callback_url)
         dwf = {'download_type' : 'Google Drive',
                'file_url' : 'www.google.com'}
