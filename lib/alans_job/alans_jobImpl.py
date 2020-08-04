@@ -68,7 +68,11 @@ class alans_job:
                'file_url' : 'www.google.com'}
         filepath = dfu.download_web_file(params=dwf)
         print("Filepath is", filepath)
-
+        
+        print("About to open refdata")
+        with open("data/kmer") as f:
+            data = f.readlines()
+        print(data)
 
         report_info = report.create({'report': {'objects_created':[],
                                                 'text_message': f'The app is done. We didnt do anything'},
