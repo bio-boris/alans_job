@@ -63,11 +63,11 @@ class alans_job:
         print("i'm so cool i'm so fashionble")
         #TODO ADD ,service_ver='fake'
         report = KBaseReport(self.callback_url)
-        dfu = DataFileUtil(self.callback_url)
-        dwf = {'download_type' : 'Google Drive',
-               'file_url' : 'www.google.com'}
-        filepath = dfu.download_web_file(params=dwf)
-        print("Filepath is", filepath)
+        # dfu = DataFileUtil(self.callback_url)
+        # dwf = {'download_type' : 'Google Drive',
+        #        'file_url' : 'www.google.com'}
+        # filepath = dfu.download_web_file(params=dwf)
+        # print("Filepath is", filepath)
         
         print("About to open refdata")
         with open("data/kmer") as f:
