@@ -13,3 +13,5 @@ module-version:
 owners:
     [bsadkhin,aseleman]
 
+data-version:
+    0.1
