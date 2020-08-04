@@ -70,8 +70,9 @@ class alans_job:
         # print("Filepath is", filepath)
         
         print("About to open refdata")
-        with open("data/kmer") as f:
+        with open("/data/kmer") as f:
             data = f.readlines()
+        print("All done!")
         print(data)
 
         report_info = report.create({'report': {'objects_created':[],
