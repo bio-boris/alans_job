@@ -18,12 +18,8 @@ elif [ "${1}" = "async" ] ; then
 elif [ "${1}" = "init" ] ; then
   echo "Initialize module"
   cd /data
-  echo "I am important reference data" > kmer
-  if [ -d kmer ] ; then
-  	touch __READY__
-  else
-    echo "Init failed"
-  fi
+  echo "I am important reference data" > /data/kmer
+ 	touch /data/__READY__
 elif [ "${1}" = "bash" ] ; then
   bash
 elif [ "${1}" = "report" ] ; then
